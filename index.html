@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amalgamation</title>
+</head>
+<body>
+    <h1 style="background-color: aqua;">LAB : Variables, Conditionals, Loops & Functions</h1>
+    
+    
+    <h1>Task 1</h1>
+    <button type="button" onclick="task1()">Task1: Variables</button>
+    <h2>Part A</h2>
+    <h2 class="Quantity"></h2>
+    <h2>Part B</h2>
+    <h2 class="Final"></h2>
+    <h2 class="Final2"></h2>
+
+    <h1>Task 2</h1>
+    <button type="button" onclick="task2()">Task2: Variables & Conditionals</button>
+    <h2 class="grades"></h2>
+
+    
+    <h1>Task 3</h1>
+    <button type="button" onclick="task3()">Task3: Variables & Loops</button>
+    <h2 class="output1"></h2>
+
+    <h1>Task 4</h1>
+    <button type="button" onclick="task4()">Task4: Variables, Loops, DOM</button>
+    <h2 class="outputT4"></h2>
+
+    <h1>Task 5</h1>
+    <button type="button" onclick="task5()">Task5: Variables, Loops, DOM, Function</button>
+    <h2 class="outputT5"></h2>
+
+    <h1>Task 6</h1>
+    <h2>Part A</h2>
+    <button type="button" onclick="task6A()">Task6 Part A: Variables, Loops, Functions</button>
+    <h2 class="outputT6A"></h2>
+    <h2>Part B</h2>
+    <button type="button" onclick="task6B()">Task6 Part B: Variables, Loops, Functions</button>
+    <h2 class="outputT6B"></h2>
+    <h2>Part C</h2>
+    <button type="button" onclick="task6C()">Task6 Part C: Variables, Loops, Functions</button>
+    <h2 class="outputT6C"></h2>
+</body>
+<script>
+function task1(){
+//a
+    let item1 = prompt("Please enter a number: ");
+
+    let item2 = document.querySelector(".Quantity");
+    item2.innerHTML = `The number you entered is ${item1}`;
+
+//b
+    let partb = prompt("Please enter enter a percentage amount: ");
+    partb = parseInt(partb);
+
+    let persent = (partb / 100);
+    let total = (item1 * persent);
+
+    let partb2 = document.querySelector(".Final");
+    partb2.innerHTML = `Quantity: ${item1}`;
+
+    partb2 = document.querySelector(".Final2");
+    partb2.innerHTML = `${partb}% of Quantity, ${item1}, is ${total}`;
+
+};
+
+//TASK 2: Variables & Conditionals
+function task2() {
+
+    let examPoint = prompt("Please enter the exam points value: ");
+    EP = parseInt(examPoint);
+
+    //a
+    if (EP >= 91){
+        let grade = "A";
+            let graded = document.querySelector(".grades");
+            raded.innerHTML = `Your grade is ${grade}`;
+    }
+    else if (EP >= 81) {
+        let grade = "B";
+            let graded = document.querySelector(".grades");
+            graded.innerHTML = `Your grade is ${grade}`;
+    }
+    else if (EP >= 71) {
+        let grade = "C";
+            let graded = document.querySelector(".grades");
+            graded.innerHTML = `Your grade is ${grade}`;
+    }
+    else if (EP >= 61) {
+        let grade = "D";
+            let graded = document.querySelector(".grades");
+            graded.innerHTML = `Your grade is ${grade}`;
+    }
+    else if (EP >= 0) {
+        let grade = "F" ;
+            let graded = document.querySelector(".grades");
+            graded.innerHTML = `Your grade is ${grade}`;
+    }
+
+    //Part B
+    switch(true) {
+
+    case EP >= 91: 
+    alert("Your Grade is an A");
+    break;
+
+    case EP >= 81:
+    alert("Your Grade is an B");
+    break;
+
+    case EP >= 71 :
+    alert("Your Grade is an C");
+    break;
+
+    case EP >= 61 :
+    alert("Your Grade is an D");
+    break;
+
+    default:
+    alert("Your Grade is an F");
+    break;
+    }
+};
+
+//Task 3: Variables & Loops
+function task3() {
+    //Task 3: Variables & Loops
+    let PName = prompt("Please enter the punishing professor's name: ");
+    let WLine = prompt("Enter the line you must write: ");
+    let NumLines = prompt("How many lines need to be written: ");
+    NumLines = parseInt(NumLines);
+
+    for (let num = 1; num <= NumLines; num++) {
+            console.log(`${num}: ${WLine}`);
+        }  
+
+    let GoodByeProf = document.querySelector(".output1");
+    GoodByeProf.innerHTML = `Check the console logs for your lines Prof. ${PName}`;
+};
+
+//Task 4: Variables, Loops, DOM
+function task4() {
+    //Task 4: Variables, Loops, DOM
+
+    let PName = prompt("Please enter the punishing professor's name: ");
+    let WLine = prompt("Enter the line you must write: ");
+    let NumLines = prompt("How many lines need to be written: ");
+    NumLines = parseInt(NumLines);
+    let T4Str = "<ul>";
+    let num = 1;
+
+    while (num <= NumLines) {
+        T4Str += `<li> ${num}: ${WLine}`;
+        console.log(`${num}: ${WLine}`); 
+        num ++
+        };
+
+    T4Str += "</ul>";
+    let T4 = document.querySelector(".outputT4");
+    T4.innerHTML = `Here are your lines Prof. ${PName} <br> ${T4Str}`;
+};
+
+
+//Task 5: Variables, Loops, DOM, Function
+function task5() {
+    //Task 5: Variables, Loops, DOM, Function
+
+    let PNameT5 = prompt("Please enter the punishing professor's name: ");
+    let WLineT5 = prompt("Enter the line you must write: ");
+    let NumLinesT5 = prompt("How many lines need to be written: ");
+    NumLinesT5 = parseInt(NumLinesT5);
+    let T5Str = "<ul>";
+
+
+    const WrittenLines = (NumLinesT5, WLineT5) => {
+        let num = 1;
+
+        while (num <= NumLinesT5) {
+            T5Str += `<li> ${num}: ${WLineT5}`;
+            console.log(`${num}: ${WLineT5}`); 
+            num ++ ;
+        }; 
+
+        return (T5Str);
+    };
+
+    WrittenLines(NumLinesT5, WLineT5);
+
+    T5Str += "</ul>";
+    let T5 = document.querySelector(".outputT5");
+    T5.innerHTML = `Here are your lines Prof. ${PNameT5} <br> ${T5Str}`;
+};
+
+//Task 6: Variables, Loops, Functions
+
+function task6A() {
+    //Part A
+
+    let delimiter = 12;
+    let Task6Str = "";
+
+    for (let F1 = 1; F1 <= 12; F1++) {
+        for (let F2 = 1; F2 <= 12; F2++) {
+            let Total = (F1 * F2);
+            Task6Str += `${F1} X ${F2} = ${Total} <br>`;
+        };
+        Task6Str += `----------- <br>`;
+    };
+
+    let T6 = document.querySelector(".outputT6A");
+    T6.innerHTML = `${Task6Str}`;
+};
+
+function task6B() {
+    //Part B
+
+    let delimiter = 12;
+    Task6StrB = "";
+
+    const Tables = (factor1) => {
+        for (let factor2 = 1; factor2 <= 12; factor2++) {
+            let TotalB = (factor1 * factor2);
+            Task6StrB += `${factor1} X ${factor2} = ${TotalB} <br>`;
+        };
+        Task6StrB += `----------- <br>`;
+    };
+
+    for (let factor1 = 1; factor1 <= 12; factor1 ++) {
+        Tables(factor1);
+    }
+
+    T6B = document.querySelector(".outputT6B");
+    T6B.innerHTML = `${Task6StrB}`;
+};
+
+function task6C () {
+    //Part C
+
+    let Task6StrC = "";
+
+    delimiterA = prompt("Enter your delimiter for first value (X * Null = Null):");
+
+    delimiterB = prompt("Enter your delimiter for second value (Null * X = Null):");
+
+    const DelimiterTables = (factor1, delimiterB) => {
+        for (let factor2 = 1; factor2 <= delimiterB; factor2++) {
+            let TotalC = (factor1 * factor2);
+            Task6StrC += `${factor1} X ${factor2} = ${TotalC} <br>`;
+        };
+        Task6StrC += `----------- <br>`;
+        return (Task6StrC);
+    };
+
+    const AllTables = (delimiterA, delimiterB) => {
+
+        for (let factor1 = 1; factor1 <= delimiterA; factor1 ++) {
+            total = DelimiterTables(factor1, delimiterB);
+        }
+        return(total);
+    }
+
+    total = AllTables(delimiterA, delimiterB);
+    T6C = document.querySelector(".outputT6C");
+    T6C.innerHTML = `${total}`; 
+};
+
+// Task 7: Hoisting
+
+/*
+
+    A: 
+        a: As a function, hoisting is where you use a function before the function is declaired and it works.
+        b: As a variable, hoisting is where you use a variable before it has been declaired. This results in the values being "Undefined".
+    
+    B:
+        a: 
+        HelloWorld();
+
+        function HelloWorld() {
+            console.log(`Hello World!!`)
+        }
+
+        b:
+        console.log(HelloProf)
+
+        var HelloProf = `Hello Profesor!`
+
+    C:
+        The variable "var" allows hoisting by using function scope (allowing access throughout the entire doc) and by allowing you to redeclare 
+    the "var" within the same scope.
+    
+        The variable "let" does not allow hoisting by using the block scope (allowing access only within the same block i.e. if or loop functions).
+    The "let" variable does not allow redeclaration, doing so results in a syntax error. 
+    */
+    
+    
+</script>
+</html>
